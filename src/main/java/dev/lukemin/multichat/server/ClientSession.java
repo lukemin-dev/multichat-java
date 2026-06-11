@@ -45,6 +45,11 @@ final class ClientSession implements Runnable {
                     break;
                 }
                 if (message.type() == MessageType.CHAT && !message.body().isBlank()) {
+                    if (message.body().trim().equalsIgnoreCase("/users")) {
+                        send(new Message(MessageType.SYSTEM, "server", "connected users: "
+                                + String.join(", ", server.connectedNicknames())));
+                        continue;
+                    }
                     server.broadcast(new Message(MessageType.CHAT, nickname, message.body()));
                 }
             }
@@ -72,4 +77,3 @@ final class ClientSession implements Runnable {
                 .orElse("anonymous");
     }
 }
-

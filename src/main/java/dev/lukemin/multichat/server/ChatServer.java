@@ -7,6 +7,7 @@ import dev.lukemin.multichat.util.Log;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -51,6 +52,13 @@ public final class ChatServer {
 
     void broadcastSystem(String body) {
         broadcast(new Message(MessageType.SYSTEM, "server", body));
+    }
+
+    List<String> connectedNicknames() {
+        return sessions.stream()
+                .map(ClientSession::nickname)
+                .sorted()
+                .toList();
     }
 
     void broadcast(Message message) {
