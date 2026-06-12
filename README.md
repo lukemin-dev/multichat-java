@@ -81,9 +81,10 @@ payload에는 메시지 타입, sender, body가 들어갑니다. sender와 body�
 ## 면접 대비 문서
 
 프로젝트 설명 흐름과 면접 답변 포인트는 [`docs/interview-notes.md`](./docs/interview-notes.md)에 정리했습니다.
+폴더별 역할과 코드 흐름은 [`docs/code-walkthrough.md`](./docs/code-walkthrough.md)에 정리했습니다.
 
 ## 다시 한다면
 
 - Java NIO 기반 비동기 소켓 처리 검토
 - 클라이언트 재접속과 예외 복구 흐름 보강
-- 귓속말, 채팅방 분리, 사용자 목록 조회 기능 추가
+- 귓속말, 채팅방 분리, 중복 닉네임 방지 기능 추가
